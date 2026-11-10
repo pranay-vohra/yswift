@@ -46,11 +46,13 @@ if ProcessInfo.processInfo.environment["YSWIFT_LOCAL"] != nil
             path: "./lib/yniffiFFI.xcframework"
     )
 } else {
-
+    // Duku fork: this MUST point at this fork's own release. Upstream's 0.2.1
+    // binary is built on yrs 0.18, which truncates 53-bit client ids and does
+    // not match the Swift scaffold in this tree. See DUKU-FORK.md before bumping.
     FFIbinaryTarget = .binaryTarget(
             name: "yniffiFFI",
-            url: "https://github.com/y-crdt/yswift/releases/download/0.2.1/yniffiFFI.xcframework.zip",
-            checksum: "7377378b6d8bb628ff8e2847f73a6b7115705d53a822dd578fb9cbcf2bce1675"
+            url: "https://github.com/pranay-vohra/yswift/releases/download/0.3.0-duku.1/yniffiFFI.xcframework.zip",
+            checksum: "e17ce5b537f6e5968f2bc12280ae2779df5e20ad52cd475281d7b1dbc88716fb"
     )
 }
 
